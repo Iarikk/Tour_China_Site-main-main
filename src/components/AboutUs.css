@@ -1,0 +1,65 @@
+/* Общий контейнер секции */
+.about-us-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 5%;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Левая часть – контейнер для наложенных изображений */
+  .about-us-hero__images {
+    flex-shrink: 0;
+  }
+  
+  .about-us-hero__image-container {
+    position: relative;
+    width: 300px;
+    height: 400px; /* Высота для вертикального растяжения */
+  }
+  
+  /* Общие стили для изображений */
+  .about-us-hero__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Фоновое изображение (находится позади) */
+  .behind {
+    border-radius: 50%/40%; /* Овальная форма, растянутая сверху и снизу */
+    z-index: 1;
+    left: 200px;
+  }
+  
+  /* Переднее изображение (накладывается поверх) */
+  .front {
+    border-radius: 60%/50%;
+    z-index: 2;
+    top: 120px;   /* Уменьшённый сдвиг вниз */
+    left: 460px;  /* Уменьшённый сдвиг вправо */
+    width: 250px;
+    height: 320px;
+  }
+  
+  /* Правая часть с текстом */
+  .about-us-hero__content {
+    max-width: 50%;
+    margin-left: 40px;
+  }
+  
+  .about-us-hero__title {
+    font-size: 36px;
+    color: #1c1c1c;
+    margin: 10px 0 20px;
+    line-height: 1.2;
+  }
+  
+  .about-us-hero__description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }

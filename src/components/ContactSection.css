@@ -1,0 +1,60 @@
+.contact-section {
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-map {
+    width: 400px; /* Увеличенная квадратная карта */
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin: 5px 0;
+}
+
+.contact-info ul li a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.contact-info ul li a:hover {
+    color: #0056b3;
+}
