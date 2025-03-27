@@ -45,6 +45,8 @@
     transition: color 0.3s ease, text-shadow 0.3s ease;
   }
   
+
+
   .footer-column ul li a:hover {
     color: #E63946;
     text-shadow: 0 5 8px rgba(0, 0, 0, 0.7);
@@ -126,6 +128,7 @@
     padding: 20px 0;
   }
   
+
   
   .social-icons li a i {
     font-size: 35px; /* Размер иконок */

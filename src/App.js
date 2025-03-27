@@ -11,8 +11,10 @@ import GalleryPage from './components/GalleryPage';
 import MainSection from './components/MainSection';
 import AboutUs from './components/AboutUs'; // Добавляем новый компонент
 import AOS from 'aos';
+import ToursGrid from "./components/ToursGrid";
 import 'aos/dist/aos.css';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   useEffect(() => {
@@ -34,9 +36,8 @@ function App() {
                 <MainSection />
                 <AboutUs />
                 <Slider />
-                <Tour />
                 <Excursion />
-                <Reviews />
+ 
               </>
             }
           />

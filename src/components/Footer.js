@@ -33,7 +33,6 @@ const Footer = () => {
             <li><a href="#">Услуги</a></li>
             <li><a href="#">Галерея</a></li>
             <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Блог</a></li>
             <li><a href="#">Контакты</a></li>
           </ul>
         </div>
