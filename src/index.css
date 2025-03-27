@@ -5,6 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/src/images2/Group 3 (45).png'); /* Указываем путь к картинке */
+  background-size: cover; /* Растягиваем картинку, чтобы она покрывала весь экран */
+  
+    background-position: center center; /* Центрируем картинку */
+    background-repeat: no-repeat; /* Запрещаем повторение картинки */
+    margin: 0; /* Убираем стандартные отступы */
 }
 
 code {

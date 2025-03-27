@@ -39,7 +39,7 @@
   
   .arrow-btn {
     border: none;
-    background-color: #0066ff;
+    background-color: #E63946;
     color: #fff;
     font-size: 18px;
     width: 36px;
@@ -50,7 +50,7 @@
   }
   
   .arrow-btn:hover {
-    background-color: #004cbf;
+    background-color: #000000;
   }
   
   /* Контейнер карточек */
@@ -65,6 +65,7 @@
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
+    cursor: po;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     display: flex;
@@ -140,75 +141,158 @@
   
   /* Кнопка «Подробнее» */
   .details-button {
-    background-color: #0066ff;
-    color: #fff;
-    border: none;
-    margin: 10px;
-    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff4f4f, #e63946);
+    color: white;
     font-size: 14px;
-    border-radius: 6px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    align-self: flex-end;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
   }
   
+  .details-button::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: rgba(255, 255, 255, 0.3);
+    top: -50%;
+    left: -50%;
+    transform: rotate(30deg);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .details-button:hover::before {
+    left: 120%;
+    top: 120%;
+  }
+
   .details-button:hover {
-    background-color: #004cbf;
+    background: linear-gradient(135deg, #d43d3d, #b82f2f);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 79, 79, 0.5);
   }
   
   /* Модальное окно — полупрозрачный фон на весь экран */
   .modal {
-    position: fixed;           /* Фиксированное позиционирование */
-    top: 100px;                  /* На 50% от верха экрана */
-    left: 50%;                 /* На 50% от левого края экрана */
-    transform: translate(-50%, -50%); /* Смещаем на половину ширины и высоты, чтобы оказаться в центре */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 9999;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
   
-  .modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 90%;
-    text-align: left;
-    /* Для красивой тени: */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    /* Позиционировать внутри .modal не нужно —
-       всё уже делает transform в .modal */
-  }
-  
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
+.modal-overlay.ReactModal__Overlay--after-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #1b1b1b;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 0 15px rgba(255, 79, 79, 0.8);
+  color: white;
+  animation: scaleIn 0.3s ease-in-out;
+}
+  
+.details-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
 /* Заголовок модального окна */
 .modal-content h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ff4f4f, #ff914d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Стили для списка внутри модального окна */
 .modal-content ul {
-  margin-left: 20px;
-  margin-bottom: 20px;
+  padding-left: 20px;
 }
 
-/* Кнопка закрытия модального окна */
+.modal-content ul li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.modal-content ul li::before {
+  content: "✓";
+  color: #ff914d;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+  top: 2px;
+}
+
+/* Кнопка закрытия */
 .close-btn {
-  background-color: #ff4f4f;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 14px;
-  position: absolute; /* Положение кнопки в правом верхнем углу */
+  position: absolute;
   top: 10px;
   right: 10px;
-  transition: background-color 0.3s ease;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.2s;
 }
 
 .close-btn:hover {
-  background-color: #cc3c3c;
+  transform: scale(1.2);
+}
+
+
+/* Анимации */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

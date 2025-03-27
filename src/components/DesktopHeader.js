@@ -132,7 +132,7 @@ const DesktopHeader = () => {
                 href="#" 
                 className={dropdownVisible === 'news' ? 'active' : ''}
               >
-                Туры <FontAwesomeIcon icon={faChevronDown} />
+                Туры 
               </a>
             </li>
             <li>
@@ -141,14 +141,13 @@ const DesktopHeader = () => {
                 href="#" 
                 className={dropdownVisible === 'services' ? 'active' : ''}
               >
-                Услуги <FontAwesomeIcon icon={faChevronDown} />
+                Услуги 
               </a>
             </li>
             <li>
               <a href="/gallery">Галерея</a>
             </li>
             <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Блог</a></li>
             <li><a href="#">Контакты</a></li>
           </ul>
         </nav>
