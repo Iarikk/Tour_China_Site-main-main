@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Excursion.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import excu1 from '../images2/excu1.jpg';
 import excu2 from '../images2/excu2.jpg';
 import excu3 from '../images2/excu3.jpg';
@@ -8,6 +9,7 @@ import excu4 from '../images2/excur4.jpeg';
 import excu5 from '../images2/excu5.webp';
 import excu6 from '../images2/excu6.jpg';
 import excu7 from '../images2/excu6.jpg';
+import excu8 from '../images2/excu7.jpg';
 
 // Массив с данными о локациях (8 штук)
 const locations = [
@@ -15,7 +17,7 @@ const locations = [
     id: 1,
     title: 'Экскурсия "фиолетовые сады багульника"',
     country: 'Китай',
-    price: '¥300',
+    price: '¥400|чел',
     rating: 5,
     image: excu1,
   },
@@ -39,7 +41,7 @@ const locations = [
     id: 4,
     title: 'Горячий источник "Лю Динь Шань"',
     country: 'Китай',
-    price: '¥500',
+    price: '¥550|чел',
     rating: 5,
     image: excu4,
   },
@@ -47,7 +49,7 @@ const locations = [
     id: 5,
     title: 'Горячий источник и сауна "Пиньшань"',
     country: 'Китай',
-    price: '¥320',
+    price: '¥150|чел',
     rating: 4,
     image: excu5,
   },
@@ -61,51 +63,37 @@ const locations = [
   },
   {
     id: 7,
-    title: 'Живаписный район Фанчуань + музей Хуньчунь',
+    title: 'Живописный район Фанчуань + музей Хуньчунь',
     country: 'Китай',
-    price: '¥330|чел',
+    price: '¥275|чел',
     rating: 5,
     image: excu7,
   },
   {
     id: 8,
-    title: 'Однодневныйе туры',
+    title: 'Однодневные туры',
     country: 'Китай',
-    price: '¥50-730',
+    price: '¥50-750|чел',
     rating: 4,
-    image: 'sydney.jpg',
+    image: excu8,
   },
 ];
 
 function LocationCards() {
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const phoneNumber = "+79245247565"; // Укажи номер для WhatsApp
 
-  // Генерация звёздочек по рейтингу
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 0; i < 5; i++) {
-      stars.push(
-        <span key={i} className={i < rating ? 'star filled' : 'star'}>
-          ★
-        </span>
-      );
-    }
-    return stars;
+  const handleBuyClick = (locationTitle) => {
+    console.log(`Пользователь нажал кнопку "Купить" для экскурсии: "${locationTitle}"`);
   };
 
   return (
-    <section className="location-section">
+    
+    <section id="excursions" className="location-section">
       <div className="location-header">
         <h2 className="location-title">Экскурсии к турам</h2>
         <p className="location-subtitle">
             Данные экскурсии НЕ входят в стоимость туров
         </p>
-
-        {/* Стрелки влево и вправо (пока без функционала) */}
-        <div className="location-arrows">
-          <button className="arrow-btn">{'<'}</button>
-          <button className="arrow-btn">{'>'}</button>
-        </div>
       </div>
 
       <div className="cards-container">
@@ -113,43 +101,35 @@ function LocationCards() {
           <div className="card" key={loc.id}>
             <div className="card-image">
               <img src={loc.image} alt={loc.title} />
-              {/* Тёмная подложка внизу карточки */}
               <div className="card-overlay">
                 <h3>{loc.title}</h3>
                 <div className="overlay-info">
-                  <span className="rating">{renderStars(loc.rating)}</span>
+                  <span className="rating">
+                    {Array.from({ length: loc.rating }, (_, i) => (
+                      <span key={i} className="star filled">★</span>
+                    ))}
+                    {Array.from({ length: 5 - loc.rating }, (_, i) => (
+                      <span key={i + 5} className="star">★</span>
+                    ))}
+                  </span>
                   <span className="price">{loc.price}</span>
                 </div>
                 <p className="country">{loc.country}</p>
               </div>
             </div>
-            <button className="details-button" onClick={() => setSelectedLocation(loc)}>
-              Подробнее
-            </button>
+            {/* Кнопка Купить с логом консоли */}
+            <a
+              className="details-button1"
+              href={`https://wa.me/${phoneNumber}?text=Здравствуйте! Я заинтересован в экскурсии: "${loc.title}".`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleBuyClick(loc.title)} // Логирование при клике
+            >
+              <FontAwesomeIcon icon={faWhatsapp} style={{ marginRight: '10px' }} /> Купить
+            </a>
           </div>
         ))}
       </div>
-
-      {/* Модальное окно при клике на «Подробнее» */}
-      {selectedLocation && (
-        <div className="modal">
-          <div className="modal-content">
-            <h3>{selectedLocation.title}</h3>
-            <p>Страна: {selectedLocation.country}</p>
-            <p>Стоимость: {selectedLocation.price}</p>
-            <ul>
-              <li>Проживание в отеле</li>
-              <li>Экскурсионная программа</li>
-              <li>Трансфер</li>
-              <li>Питание</li>
-              <li>...и многое другое</li>
-            </ul>
-            <button className="close-btn" onClick={() => setSelectedLocation(null)}>
-              Закрыть
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

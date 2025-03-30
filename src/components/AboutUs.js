@@ -1,38 +1,12 @@
 import React from 'react';
-import './AboutUs.css';
-
-// Импорт изображений (замените пути на актуальные)
-import bgImage from '../images2/aboutUs.jpg';
-import fgImage from '../images2/aboutUs2.jpg';
+import { useMediaQuery } from 'react-responsive';
+import DesktopAboutUs from './DesktopAboutUs';
+import MobileAboutUs from './MobileAboutUs';
 
 function AboutUs() {
-  return (
-    <section className="about-us-hero">
-      {/* Левая часть – контейнер для наложенных изображений */}
-      <div className="about-us-hero__images">
-        <div className="about-us-hero__image-container">
-          <img
-            src={bgImage}
-            alt="Фонового пейзажа"
-            className="about-us-hero__image behind"
-          />
-          <img
-            src={fgImage}
-            alt="Фронтального пейзажа"
-            className="about-us-hero__image front"
-          />
-        </div>
-      </div>
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
-      {/* Правая часть с текстом */}
-      <div className="about-us-hero__content">
-        <h1 className="about-us-hero__title">Откройте Китай с нами</h1>
-        <p className="about-us-hero__description">
-          ООО «МИР ПУТЕШЕСТВИЙ» готов предоставить для жителей Дальнего востока туры в Китай на любой вкус и кошелек. Мы качественно подходим к своей работе. Найдем подход к каждому! Наша команда организовала множество туров, которые оставили след в памяти наших клиентов.
-        </p>
-      </div>
-    </section>
-  );
+  return isMobile ? <MobileAboutUs /> : <DesktopAboutUs />;
 }
 
 export default AboutUs;

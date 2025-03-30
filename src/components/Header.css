@@ -200,7 +200,7 @@
   padding: 10px 0; 
 }
 .dropdown-menu li a:hover {
-  color: #E63946;
+  color: #e63946;
 }
 
 @keyframes fadeIn {
@@ -525,4 +525,14 @@ transition: background-color 0.5s ease, color 0.5s ease;
   display: flex; 
   align-items: center; 
   width: 100%; 
+}
+
+
+.nav-menu .nav-link {
+  cursor: pointer; /* Курсор при наведении */
+  transition: color 0.3s;
+}
+
+.nav-menu .nav-link:hover {
+  color: #ff6347; /* Цвет при наведении, измените на желаемый */
 }

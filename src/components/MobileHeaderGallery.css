@@ -44,8 +44,6 @@
     transition: background 0.3s ease-in-out;
 }
 
-
-
 /* === Меню, которое появляется сбоку === */
 .overlay {
     position: fixed;
@@ -73,10 +71,7 @@
     visibility: visible; /* Меню видимо */
     opacity: 1; /* Меню полностью видимо */
     transition: opacity 0.4s ease-in-out; /* Плавное появление */
-
 }
-
-
 
 /* Кнопка закрытия */
 .close-button {
@@ -116,6 +111,3 @@
     background: #E63946;
     color: white;
 }
-
-
-

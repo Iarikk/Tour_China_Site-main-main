@@ -3,7 +3,6 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    /* Используем 100vw вместо 100% */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -44,8 +43,6 @@
     transition: background 0.3s ease-in-out;
 }
 
-
-
 /* === Меню, которое появляется сбоку === */
 .overlay {
     position: fixed;
@@ -55,7 +52,6 @@
     width: 250px;
     height: 300px;
     background: rgba(255, 255, 255, 1);
-    /* Изначально полупрозрачное */
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -73,10 +69,7 @@
     visibility: visible; /* Меню видимо */
     opacity: 1; /* Меню полностью видимо */
     transition: opacity 0.4s ease-in-out; /* Плавное появление */
-
 }
-
-
 
 /* Кнопка закрытия */
 .close-button {
@@ -101,12 +94,10 @@
 .nav-links a {
     text-decoration: none;
     color: black;
-    /* Изначально черный текст */
     font-size: 18px;
     padding: 10px 20px;
     border-radius: 10px;
-    border: 2px solid #E63946;
-    /* Красная обводка */
+    border: 2px solid #E63946; /* Красная обводка */
     background: transparent;
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -117,5 +108,75 @@
     color: white;
 }
 
+/* === Стиль стрелок навигации для Swiper === */
+.swiper-button-next, .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: background-color 0.3s ease;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 20px;
+    color: white;
+}
 
 
+.swiper-button-next:active, .swiper-button-prev:active {
+    background-color: rgba(0, 0, 0, 0.8); /* Темнее при нажатии */
+}
+
+.swiper-button-next:focus, .swiper-button-prev:focus {
+    outline: none;
+}
+
+/* === Кнопка WhatsApp === */
+.whatsapp-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 2px solid #E63946; /* Красная обводка */
+    background-color: white;
+    color: #E63946; /* Красный цвет текста */
+    font-weight: bold;
+    font-family: 'Comfortaa', sans-serif;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 15px; /* Отступ сверху */
+}
+
+/* Иконка WhatsApp */
+.whatsapp-icon {
+    margin-right: 10px; /* Отступ от иконки */
+    width: 20px;
+    height: 20px;
+}
+
+/* Наведение */
+.whatsapp-button:hover {
+    background-color: #32CD32; /* Зеленый при наведении */
+    color: white; /* Белый цвет текста */
+    border-color: #32CD32; /* Зеленая обводка */
+}
+
+/* === Мобильная версия === */
+@media (max-width: 768px) {
+    .whatsapp-button {
+        font-size: 14px; /* Меньший размер текста для мобильных */
+        padding: 8px 15px;
+    }
+
+    .whatsapp-icon {
+        width: 18px; /* Уменьшаем размер иконки на мобильной версии */
+        height: 18px;
+    }
+}

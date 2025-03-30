@@ -1,0 +1,50 @@
+.mobile-about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 10px;
+    overflow: hidden;
+}
+
+.mobile-about-us__image-container {
+    position: relative;
+    width: 80%;
+    max-width: 250px;
+    height: 320px;
+}
+
+.mobile-about-us__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.behind {
+    left: -1px;
+    border-radius: 50%/40%;
+}
+
+.front {
+    left: 10px;
+    top: 50px;
+    width: 90%;
+    height: 90%;
+    border-radius: 60%/50%;
+}
+
+.mobile-about-us__content {
+    max-width: 90%;
+    margin-top: 20px;
+}
+
+.mobile-about-us__title {
+    font-size: 28px;
+    color: #1c1c1c;
+}
+
+.mobile-about-us__description {
+    font-size: 14px;
+    color: #555;
+}

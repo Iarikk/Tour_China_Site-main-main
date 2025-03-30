@@ -1,46 +1,20 @@
 import React from 'react';
-import './Footer.css'; // Импорт CSS файла
+import { useMediaQuery } from 'react-responsive';
+import DesktopFooter from './DesktopFooter';
+import MobileFooter from './MobileFooter';
+import './Footer.css'; // Общие стили футера (для всех версий)
 
 const Footer = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   return (
-    <footer className="footer-container">
-      <div className="footer-links">
-
-
-
-        <div className="footer-column">
-          <h4>Контактная информация</h4>
-          <ul>
-            <li><a>Адрес:</a></li>
-            <li><a>Телефон:</a></li>
-            <li><a>Email:</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-column">
-          <h4>Информация для туристов</h4>
-          <ul>
-            <li><a href="#">Вопросы и ответы</a></li>
-            <li><a href="#">Политика конфиденциальности</a></li>
-            <li><a href="#">Политика использования</a></li>
-            
-          </ul>
-        </div>
-        <div className="footer-column">
-          <h4>Полезные ссылки</h4>
-          <ul>
-            <li><a href="#">Туры</a></li>
-            <li><a href="#">Услуги</a></li>
-            <li><a href="#">Галерея</a></li>
-            <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Контакты</a></li>
-          </ul>
-        </div>
-      </div>
-
-
-
-      
+    <footer id="footer" className="footer-container">
+      {/* Выбираем, какой футер показывать в зависимости от ширины экрана */}
+      {isMobile ? (
+        <MobileFooter />
+      ) : (
+        <DesktopFooter />
+      )}
     </footer>
   );
 };

@@ -1,0 +1,57 @@
+/* Стили для футера на мобильных устройствах */
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-column {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-column ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Добавляем красную линию для мобильной версии */
+  .footer-line-mobile {
+    width: 100%;
+    height: 2px;
+    background-color: #E63946;
+    margin-bottom: 20px; /* Расстояние от линии до контента футера */
+  }
+
+  .footer-line-top {
+    width: 100%;
+    height: 2px;
+    background-color: #E63946;
+    margin-bottom: 20px; /* Расстояние от линии до контента футера */
+  }
+  

@@ -1,0 +1,58 @@
+/* Стили для футера на десктопе */
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-column ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-line-desktop-top {
+    width: 1000px;
+    height: 2px;
+    background-color: #E63946;
+    margin-bottom: 20px; /* Расстояние от линии до контента футера */
+  }
+
+  .footer-line-desktop-bottom {
+    width: 100%;
+    height: 2px;
+    background-color: #E63946;
+    margin-bottom: 20px; /* Расстояние от линии до контента футера */
+  }
+  
