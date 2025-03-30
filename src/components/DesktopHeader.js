@@ -1,10 +1,10 @@
-// DesktopHeader.jsx
 import React, { useEffect, useState, useRef } from 'react';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
 import logo from '../components/ChinaLogo.png';
+import { Link } from 'react-scroll'; // Импортируем Link из react-scroll
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faSun, faMoon, faDollarSign, faEuroSign, faYenSign, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faDollarSign, faEuroSign, faYenSign, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const DesktopHeader = () => {
   const navigate = useNavigate();
@@ -14,19 +14,10 @@ const DesktopHeader = () => {
   const [weather, setWeather] = useState(null);
   const [currencyRates, setCurrencyRates] = useState({ usd: null, eur: null, cny: null });
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [theme, setTheme] = useState('light');
-  const [isScrolled, setIsScrolled] = useState(false); 
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const dropdownRef = useRef(null);
   const menuRef = useRef(null);
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -127,36 +118,43 @@ const DesktopHeader = () => {
         <nav className="nav-menu" ref={menuRef}>
           <ul>
             <li>
-              <a 
-                onClick={() => toggleDropdown('news')} 
-                href="#" 
-                className={dropdownVisible === 'news' ? 'active' : ''}
+              <Link 
+                to="slider" 
+                smooth={true} 
+                duration={500} 
+                offset={-100} // Добавляем отступ перед заголовком
+                className="nav-link"
               >
-                Туры 
-              </a>
+                Туры
+              </Link>
             </li>
             <li>
-              <a 
-                onClick={() => toggleDropdown('services')} 
-                href="#" 
-                className={dropdownVisible === 'services' ? 'active' : ''}
+              <Link 
+                to="excursions" 
+                smooth={true} 
+                duration={500} 
+                offset={-100} // Добавляем отступ перед заголовком
+                className="nav-link"
               >
-                Услуги 
-              </a>
+                Экскурсии
+              </Link>
             </li>
             <li>
               <a href="/gallery">Галерея</a>
             </li>
-            <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li>
+              <Link 
+                to="footer" 
+                smooth={true} 
+                duration={500} 
+                offset={-100} // Добавляем отступ перед заголовком
+                className="nav-link"
+              >
+                Контакты
+              </Link>
+            </li>
           </ul>
         </nav>
-      </div>
-
-      <div className="info-container right-section">
-        <button className="theme-toggle" onClick={toggleTheme}>
-          <FontAwesomeIcon icon={theme === 'light' ? faSun : faMoon} />
-        </button>
       </div>
     </header>
   );

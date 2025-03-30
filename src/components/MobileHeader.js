@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import logo from '../components/ChinaLogo.png';
+import { Link } from 'react-scroll'; // Импортируем Link для скроллинга
 import './MobileHeader.css';
 
 const MobileHeader = () => {
@@ -27,7 +28,17 @@ const MobileHeader = () => {
   return (
     <header className={`mobile-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
-        <img src={logo} alt="Logo" className="logo" />
+        {/* Логотип с переходом к MainSection */}
+        <Link 
+          to="main-section" 
+          smooth={true} 
+          duration={500} 
+          offset={-100} // Добавляем отступ перед заголовком
+          className="logo-link"
+        >
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
+        
         <button className="menu-button" onClick={toggleMenu}>
           <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
         </button>
@@ -35,11 +46,41 @@ const MobileHeader = () => {
 
       {/* Навигационное меню */}
       <div className={`overlay ${menuOpen ? 'open' : ''} ${isScrolled ? 'scrolled' : ''}`}>
+        <button className="close-button" onClick={toggleMenu}>
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
         <nav className="nav-links">
-          <a href="/tours" onClick={toggleMenu}>Туры</a>
-          <a href="/services" onClick={toggleMenu}>Услуги</a>
+          <Link 
+            to="slider" 
+            smooth={true} 
+            duration={500} 
+            offset={-100} // Добавляем отступ перед заголовком
+            className="nav-link"
+            onClick={toggleMenu}
+          >
+            Туры
+          </Link>
+          <Link 
+            to="excursions" 
+            smooth={true} 
+            duration={500} 
+            offset={-100} // Добавляем отступ перед заголовком
+            className="nav-link"
+            onClick={toggleMenu}
+          >
+            Экскурсии
+          </Link>
           <a href="/gallery" onClick={toggleMenu}>Галерея</a>
-          <a href="/contacts" onClick={toggleMenu}>Контакты</a>
+          <Link 
+            to="footer" 
+            smooth={true} 
+            duration={500} 
+            offset={-100} // Добавляем отступ перед заголовком
+            className="nav-link"
+            onClick={toggleMenu}
+          >
+            Контакты
+          </Link>
         </nav>
       </div>
     </header>

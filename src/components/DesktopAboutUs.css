@@ -1,0 +1,58 @@
+.about-us-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 60px 5%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Контейнер для изображений */
+.about-us-hero__images {
+    position: relative;
+    width: 380px; /* Увеличил ширину контейнера */
+    height: 420px;
+    flex-shrink: 0;
+}
+
+/* Фоновое изображение (слева) */
+.behind {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 360px;
+    height: 380px;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+/* Переднее изображение (справа, ниже и чуть сверху налезает на левое) */
+.front {
+    position: absolute;
+    left: 100px;  /* Смещение вправо */
+    top: 100px;   /* Смещение вниз */
+    width: 250px;
+    height: 350px;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Блок с текстом */
+.about-us-hero__content {
+    max-width: 45%;
+    text-align: left;
+}
+
+.about-us-hero__title {
+    font-size: 36px;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+}
+
+.about-us-hero__description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}

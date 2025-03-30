@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './GalleryPage.css';
-
+import MobileHeaderGallery from './MobileHeaderGallery'; // Импортируем мобильную шапку
 const GalleryPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCity, setSelectedCity] = useState(null);
@@ -69,7 +69,7 @@ const GalleryPage = () => {
 
   return (
     <div className="gallery-page3">
-      <h1>Галерея городов Китая</h1>
+            <MobileHeaderGallery />
       <div className="gallery-container3">
         {cities.map((city, index) => (
           <div

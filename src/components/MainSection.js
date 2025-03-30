@@ -24,7 +24,7 @@ const MainSection = () => {
 
     return (
         <div
-            className="main-section"
+            id="main-section" className="main-section"
             style={{ backgroundImage: `url(${images[currentIndex]})` }}
         >
             <div className="content">
@@ -32,7 +32,6 @@ const MainSection = () => {
                 <p className="subtitle">
                     Откройте для себя уникальную культуру, историю и природу Китая с нами!
                 </p>
-                <button className="learn-more-button">Узнать больше</button>
             </div>
         </div>
     );
